@@ -15,8 +15,8 @@ import java.util.Optional;
 public class NewspaperService {
     private final NewspaperRepository newspaperRepository;
 
-    public List<NewspaperEntity> getAll() {
-        return newspaperRepository.findAll(Sort.by(Sort.Direction.DESC, "createTime"));
+    public List<NewspaperEntity> getAllByType(Integer type) {
+        return newspaperRepository.getAllByType(type);
     }
 
     public List<NewspaperEntity> getListByCategoryIdAndType(Long categoryId, Integer type) {

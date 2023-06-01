@@ -14,9 +14,9 @@ import java.util.List;
 public class NewspaperController {
     private final NewspaperService newspaperService;
 
-    @GetMapping("/list-all")
-    public ResponseEntity<List<NewspaperEntity>> getAll() {
-        return ResponseEntity.ok(newspaperService.getAll());
+    @GetMapping("/list-all/{type}")
+    public ResponseEntity<List<NewspaperEntity>> getAllByType(@PathVariable Integer type) {
+        return ResponseEntity.ok(newspaperService.getAllByType(type));
     }
 
     @GetMapping("/detail/{id}")
