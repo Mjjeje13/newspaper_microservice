@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "spring.jpa.hibernate.ddl-auto.properties.hibernate.dialect",
+      "type": "java.lang.String",
+      "description": "Description for spring.jpa.hibernate.ddl-auto.properties.hibernate.dialect."
+    },
+    {
+      "name": "spring.jpa.hibernate.ddl-auto.generate-ddl",
+      "type": "java.lang.String",
+      "description": "Description for spring.jpa.hibernate.ddl-auto.generate-ddl."
+    }
+  ] }
