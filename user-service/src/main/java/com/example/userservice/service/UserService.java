@@ -58,7 +58,7 @@ public class UserService {
             return ServerResponseDto.ERROR;
         }
         if (request.getPassword().equals(user.getPassword())) {
-            return ServerResponseDto.SUCCESS;
+            return ServerResponseDto.success(user);
         }
         return ServerResponseDto.with(ResponseCase.PASSWORD_NOT_RIGHT);
     }
