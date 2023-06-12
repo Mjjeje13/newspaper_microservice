@@ -100,9 +100,19 @@ public class UserService {
 
     public ServerResponseDto like(LikeDto likeDto) {
         FavoriteEntity favorite = new FavoriteEntity();
-        favorite.setUserId(likeDto.getUserId());
-        favorite.setNewsId(likeDto.getNewsId());
-        favoriteRepository.save(favorite);
+        Long userId = likeDto.getUserId();
+        Long newsId = likeDto.getNewsId();
+        FavoriteEntity favoriteFromDb = favoriteRepository.findByUserIdAndNewsId(userId, newsId);
+        if (favoriteFromDb == null) {
+            favorite.setUserId(likeDto.getUserId());
+            favorite.setNewsId(likeDto.getNewsId());
+            favoriteRepository.save(favorite);
+        } else {
+            favorite.setId(favoriteFromDb.getId());
+            favorite.setUserId(likeDto.getUserId());
+            favorite.setNewsId(likeDto.getNewsId());
+            favoriteRepository.save(favorite);
+        }
         return ServerResponseDto.SUCCESS;
     }
 
